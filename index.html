@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Color Navbar with Contrast Control - By Veda</title>
+    <style>
+        :root {
+            --contrast-level: 1; /* Adjust this value to control contrast */
+            --color1: hsl(10, 100%, calc(50% * var(--contrast-level)));
+            --color2: hsl(120, 100%, calc(50% * var(--contrast-level)));
+            --color3: hsl(240, 100%, calc(50% * var(--contrast-level)));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: linear-gradient(45deg, var(--color1), var(--color2), var(--color3));
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 3px solid black;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s ease;
+            
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        .contrast-controls {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .contrast-controls button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            background: #333;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="contrast-controls">
+        <button onclick="changeContrast(0.2)">Low Contrast</button>
+        <button onclick="changeContrast(0.6)">Normal Contrast</button>
+        <button onclick="changeContrast(1.1)">High Contrast</button>
+        
+        <button onclick="changeContrast(1.5)">Super Contrast</button>
+        <button onclick="changeContrast(1.8)">Extreme Contrast</button>
+
+    </div>
+
+    <script>
+        function changeContrast(level) {
+            document.documentElement.style.setProperty('--contrast-level', level);
+        }
+    </script>
+
+</body>
+</html>
+
